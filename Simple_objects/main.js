@@ -13,7 +13,21 @@ const personalMobieDB = {
 for (let i = 0; i < numberOfFilms; i++){
     let filmName = prompt('Один из последних просмотренных фильмов?', '');
     let score = prompt('На сколько вы его оцениваете?', '');
-    personalMobieDB.movies[filmName] = score;
+    
+    if (filmName != Null && score != null && filmName != "" && score != ""
+                            && filmName.length < 55 && score.length < 50){
+        personalMobieDB.movies[filmName] = score;
+        console.log("Ok");
+    } else {
+        console.log("Error");
+        i--;
+    }
 }
 
-console.log(personalMobieDB);
+if (personalMobieDB.count < 10){
+    console.log("Мало фильмов");
+}else if (personalMobieDB.count > 30) {
+    console.log("Много фильмов");
+} else {
+    console.log("Ok");
+}
